@@ -1,40 +1,48 @@
-use gloo_storage::Storage;
 use std::ops::Deref;
 use yew::prelude::*;
 
-use super::ThemeChoice;
+use crate::Theme;
 
 #[derive(Debug, Clone)]
-pub struct ThemeContext<T> {
-    inner: UseStateHandle<ThemeChoice>,
+pub struct ThemeContext<T>
+where
+    T: Theme,
+{
+    inner: UseStateHandle<T>,
 }
 
-impl<T> ThemeContext<T> {
-    pub fn new(inner: UseStateHandle<ThemeChoice>) -> Self {
+impl<T> ThemeContext<T>
+where
+    T: Theme,
+{
+    pub fn new(inner: UseStateHandle<T>) -> Self {
         Self { inner }
     }
 
-    pub fn set(&self, choice: ThemeChoice) {
+    pub fn set(&self, choice: T) {
         self.inner.set(choice);
-        // Try to save in local storage
-        gloo_storage::LocalStorage::set("theme", choice)
-            .expect("Theme preference could not be saved");
     }
 
-    pub fn kind(&self) -> ThemeChoice {
+    pub fn kind(&self) -> T {
         *self.inner
     }
 }
 
-impl<T> Deref for ThemeContext<T> {
+impl<T> Deref for ThemeContext<T>
+where
+    T: Theme,
+{
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        self.inner.theme()
+        &*self.inner
     }
 }
 
-impl<T> PartialEq for ThemeContext<T> {
+impl<T> PartialEq for ThemeContext<T>
+where
+    T: Theme,
+{
     fn eq(&self, rhs: &Self) -> bool {
         *self.inner == *rhs.inner
     }

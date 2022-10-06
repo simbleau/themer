@@ -1,9 +1,12 @@
-pub fn use_theme() -> ThemeContext {
-    yew::use_context::<ThemeContext>().unwrap()
+pub fn use_theme<T>() -> T
+where
+    T: Theme,
+{
+    yew::use_context::<T>().unwrap()
 }
 
-mod theme_choice;
-pub use theme_choice::ThemeChoice;
+mod browser_preference;
+pub use browser_preference::BrowserPreference;
 
 mod theme_context;
 pub use theme_context::ThemeContext;
@@ -11,8 +14,5 @@ pub use theme_context::ThemeContext;
 mod theme_provider;
 pub use theme_provider::ThemeProvider;
 
-mod light_theme;
-pub use light_theme::LIGHT_THEME;
-
-mod dark_theme;
-pub use dark_theme::DARK_THEME;
+mod traits;
+pub use traits::*;
