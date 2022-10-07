@@ -15,7 +15,7 @@ where
     T: Theme,
     K: ThemeKey<T>,
 {
-    let theme_state = use_state(move || props.theme);
+    let theme_state = use_state(move || props.theme.clone());
     let theme_ctx = ThemeContext::new(theme_state);
 
     html! {

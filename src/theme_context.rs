@@ -24,7 +24,7 @@ where
     }
 
     pub fn kind(&self) -> T {
-        *self.inner
+        (*self.inner).clone()
     }
 }
 

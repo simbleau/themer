@@ -1,8 +1,8 @@
 use std::hash::Hash;
 
-pub trait Theme: Clone + PartialEq + Sized {}
+pub trait Theme: Clone + PartialEq + Sized + 'static {}
 
-pub trait ThemeKey<T>: Clone + PartialEq + Hash
+pub trait ThemeKey<T>: Clone + PartialEq + Hash + 'static
 where
     T: Theme,
 {
