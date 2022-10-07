@@ -10,10 +10,11 @@ panic = 'abort'
 codegen-units = 1
 # optimization for size (aggressive)
 opt-level = 'z'
-# optimization for size
-#opt-level = 's'
 # link time optimization using using whole-program analysis
 lto = true
+
+[lib]
+crate-type = ["cdylib"]
 
 [dependencies]
 yew = "0.19.3"
@@ -26,5 +27,5 @@ version = "0.3.60"
 features = [
     "Storage",
     "Window",
-    "Element",
+    "MediaQueryList",
 ]
