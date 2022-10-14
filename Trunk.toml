@@ -1,0 +1,11 @@
+[watch]
+# Paths to watch. The `build.target`'s parent folder is watched by default.
+watch = []
+# Paths to ignore.
+ignore = [
+    "crates/themer/target/",
+    "crates/themer-core/target/",
+    "crates/themer-macros/target/",
+
+    "examples/3_themes/target/",
+]
