@@ -4,10 +4,9 @@ A non-complicated theme management library for Yew
 
 # Examples
 ** TODO: This is in progress **
-- Single Theme: Example of a static theme
 - Browser Preference: Example reading browser theme preference (Light/Dark)
 - 2 Themes: Example of switching between two themes (e.g. Light theme, Dark theme)
-- 3 Themes: Example of switching between more than 2 themes (e.g. Winter theme, Summer theme, Autumn theme)
+- 3+ Themes: Example of switching between more than 2 themes (e.g. Winter theme, Summer theme, Autumn theme)
 - Storage: Example of storing and reading theme preferences in the browser's local storage
 
 Here's a minimal example:
