@@ -15,15 +15,11 @@ pub fn root() -> Html {
 
 #[styled_component(App)]
 fn app() -> Html {
-    let theme = use_theme::<MyTheme>();
+    let theme = use_theme::<MyTheme>().expect("No theme!");
 
     let style = css! {
-        r#"
-            color: ${fg};
-            background-color: ${bg};
-        "#,
-        fg = theme.fg,
-        bg = theme.bg
+        color: ${theme.fg};
+        background-color: ${theme.bg};
     };
 
     html! {
@@ -34,5 +30,12 @@ fn app() -> Html {
 }
 
 fn main() {
+    #[cfg(debug_assertions)]
+    {
+        // Initialize log and panics to forward to browser log if debugging
+        console_log::init_with_level(log::Level::Trace)
+            .expect("Failed to initialise Log!");
+        std::panic::set_hook(Box::new(console_error_panic_hook::hook));
+    }
     yew::start_app::<Root>();
 }

@@ -10,3 +10,8 @@ yew = "0.19.3"
 wasm-bindgen = "0.2.83"
 serde = "1.0.145"
 once_cell = "1.15.0"
+
+# Logging
+console_error_panic_hook = "0.1.7"
+log = "0.4.17"
+console_log = { version = "0.2.0" }
