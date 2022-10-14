@@ -15,7 +15,7 @@ pub fn root() -> Html {
 
 #[styled_component(App)]
 fn app() -> Html {
-    let theme = use_theme::<MyTheme>().expect("No theme!");
+    let theme = use_theme::<MyTheme>();
 
     let style = css! {
         color: ${theme.fg};
