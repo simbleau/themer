@@ -1,4 +1,5 @@
 use std::ops::Deref;
+use themer_core::ThemeKey;
 use yew::prelude::*;
 
 use crate::Theme;
@@ -19,12 +20,11 @@ where
         Self { inner }
     }
 
-    pub fn set(&self, choice: T) {
-        self.inner.set(choice);
-    }
-
-    pub fn kind(&self) -> T {
-        (*self.inner).clone()
+    pub fn set<K>(&self, key: K)
+    where
+        K: ThemeKey<T>,
+    {
+        self.inner.set(key.theme().clone());
     }
 }
 

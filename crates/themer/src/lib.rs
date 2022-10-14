@@ -4,11 +4,11 @@ pub mod macros {
 
 pub use themer_core::*;
 
-pub fn use_theme<T>() -> T
+pub fn use_theme<T>() -> Option<T>
 where
-    T: themer_core::Theme,
+    T: crate::Theme,
 {
-    yew::use_context::<T>().unwrap()
+    yew::use_context::<T>()
 }
 
 mod browser_preference;

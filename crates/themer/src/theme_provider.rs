@@ -23,12 +23,13 @@ where
     T: Theme,
     K: ThemeKey<T>,
 {
-    let theme_state = use_state(move || props.theme.theme().clone());
+    let theme = props.theme.theme().clone();
+    let theme_state = use_state(move || theme);
     let theme_ctx = ThemeContext::new(theme_state);
 
     html! {
-        <ContextProvider<ThemeContext<T>> context={theme_ctx}>
+        <ContextProvider<T> context={(*theme_ctx).clone()}>
             {props.children.clone()}
-        </ContextProvider<ThemeContext<T>>>
+        </ContextProvider<T>>
     }
 }
