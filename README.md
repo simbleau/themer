@@ -1,34 +1,57 @@
 # themer
-Non-complicated theme management in Rust for WebAssembly
+A non-complicated theme management library for Yew
 
 
-# Example
+# Examples
+** TODO: This is in progress **
+- Single Theme: Example of a static theme
+- Browser Preference: Example reading browser theme preference (Light/Dark)
+- 2 Themes: Example of switching between two themes (e.g. Light theme, Dark theme)
+- 3 Themes: Example of switching between more than 2 themes (e.g. Winter theme, Summer theme, Autumn theme)
+- Storage: Example of storing and reading theme preferences in the browser's local storage
+
+Here's a minimal example:
 ```rs
-pub static MY_THEME: Lazy<Theme> = Lazy::new(|| Theme {
-    fg: Color::opaque(0x44, 0x44, 0x44),
-    bg: Color::opaque(0xff, 0xff, 0xff),
-});
+use stylist::yew::styled_component;
+use yew::prelude::*;
 
-#[function_component(App)]
+#[theme]
+pub struct MyTheme {
+    fg: &'static str,
+    bg: &'static str,
+}
+
+pub const BLUE_THEME: MyTheme = MyTheme {
+    fg: "blue",
+    bg: "white",
+};
+
+#[function_component(Root)]
+pub fn root() -> Html {
+    html! {
+        <ThemeProvider<MyTheme> theme={ BLUE_THEME } >
+            <App />
+        </ThemeProvider<MyTheme>>
+    }
+}
+
+#[styled_component(App)]
 pub fn app() -> Html {
-    let theme = use_theme();
-    let fg = theme.fg;
-    let bg = theme.bg;
+    let theme = use_theme<MyTheme>();
 
     let style = css! {
-        color: ${fg};
-        background-color: ${bg};
+        color: ${theme.fg};
+        background-color: ${theme.bg};
     };
 
     html! {
-        <ThemeProvider>
-            <label class={style} />{"Hello"}</label>
-        </ThemeProvider>
+        <label class={style} />
+            {"I am a blue label"}
+        </label>
     }
 }
 
 pub fn main() -> Html {
-    themer::set_theme(MY_THEME);
     yew::start_app::<App>();
 }
 ```
