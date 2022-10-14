@@ -1,31 +1,14 @@
-[package]
-name = "themer"
-version = "0.1.0"
-edition = "2021"
+[workspace]
+members = [
+    "crates/themer",
+    "crates/themer-core",
+    "crates/themer-macros",
+
+    "examples/3_themes",
+]
 
 [profile.release]
-# less code to include into binary
-panic = 'abort'
-# optimization over all codebase ( better optimization, slower build )
-codegen-units = 1
-# optimization for size (aggressive)
 opt-level = 'z'
-# link time optimization using using whole-program analysis
 lto = true
-
-[lib]
-crate-type = ["cdylib"]
-
-[dependencies]
-yew = "0.19.3"
-wasm-bindgen = "0.2.83"
-gloo-storage = "0.2.2"
-serde = "1.0.145"
-
-[dependencies.web-sys]
-version = "0.3.60"
-features = [
-    "Storage",
-    "Window",
-    "MediaQueryList",
-]
+codegen-units = 1
+panic = "abort"

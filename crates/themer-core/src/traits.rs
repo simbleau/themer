@@ -6,5 +6,5 @@ pub trait ThemeKey<T>: Clone + PartialEq + Hash + 'static
 where
     T: Theme,
 {
-    fn theme() -> &'static T;
+    fn theme(&self) -> &'static T;
 }

@@ -1,0 +1,24 @@
+[package]
+name = "themer-macros"
+description = "Procedural macros for Themer"
+version = "0.1.0"
+authors = ["Spencer C. Imbleau <spencer@imbleau.com>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/simbleau/themer"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+themer-core = { path = "../themer-core" }
+
+
+litrs = "0.2.3"
+proc-macro-error = "1.0.4"
+proc-macro2 = "1.0.40"
+quote = "1.0.20"
+nom = "7.1.1"
+syn = { version = "1.0.98", features = ["full", "extra-traits"] }
+itertools = "0.10.3"
+log = "0.4.17"

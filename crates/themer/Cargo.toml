@@ -1,0 +1,23 @@
+[package]
+name = "themer"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+themer-core = { path = "../themer-core" }
+themer-macros = { path = "../themer-macros" }
+yew = "0.19.3"
+wasm-bindgen = "0.2.83"
+gloo-storage = "0.2.2"
+serde = "1.0.145"
+
+[dependencies.web-sys]
+version = "0.3.60"
+features = [
+    "Storage",
+    "Window",
+    "MediaQueryList",
+]
