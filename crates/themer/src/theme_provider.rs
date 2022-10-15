@@ -28,8 +28,8 @@ where
     let theme_ctx = ThemeContext::new(theme_state);
 
     html! {
-        <ContextProvider<T> context={(*theme_ctx).clone()}>
+        <ContextProvider<ThemeContext<T>> context={ theme_ctx }>
             {props.children.clone()}
-        </ContextProvider<T>>
+        </ContextProvider<ThemeContext<T>>>
     }
 }

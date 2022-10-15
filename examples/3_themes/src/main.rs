@@ -1,7 +1,7 @@
 use stylist::yew::styled_component;
 use yew::prelude::*;
 
-use example::{MyTheme, MyThemeChoice};
+use example::{MyTheme, MyThemeChoice, BLUE_THEME, LIGHT_THEME};
 use themer::{use_theme, ThemeProvider};
 
 #[function_component(Root)]
@@ -17,25 +17,33 @@ pub fn root() -> Html {
 fn app() -> Html {
     let theme = use_theme::<MyTheme>();
 
+    let onclick = {
+        let theme = theme.clone();
+        Callback::from(move |_| {
+            // Do nothing
+            let next = {
+                if *theme == *LIGHT_THEME {
+                    MyThemeChoice::Blue
+                } else if *theme == *BLUE_THEME {
+                    MyThemeChoice::Dark
+                } else {
+                    MyThemeChoice::Light
+                }
+            };
+            theme.set(next);
+        })
+    };
+
     let style = css! {
         color: ${theme.fg};
         background-color: ${theme.bg};
     };
 
     html! {
-        <>
-        <h1 class={style}>{"I am a themed label"}</h1>
-        </>
+        <button class={ style } {onclick}>{"Switch themes"}</button>
     }
 }
 
 fn main() {
-    #[cfg(debug_assertions)]
-    {
-        // Initialize log and panics to forward to browser log if debugging
-        console_log::init_with_level(log::Level::Trace)
-            .expect("Failed to initialise Log!");
-        std::panic::set_hook(Box::new(console_error_panic_hook::hook));
-    }
     yew::start_app::<Root>();
 }

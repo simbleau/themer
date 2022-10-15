@@ -3,8 +3,6 @@ members = [
     "crates/themer",
     "crates/themer-core",
     "crates/themer-macros",
-
-    "examples/3_themes",
 ]
 
 [profile.release]

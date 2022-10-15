@@ -13,6 +13,6 @@ pub static LIGHT_THEME: Lazy<MyTheme> = Lazy::new(|| MyTheme {
 });
 
 pub static BLUE_THEME: Lazy<MyTheme> = Lazy::new(|| MyTheme {
-    fg: "#00f",
-    bg: "#00a",
+    fg: "#fff",
+    bg: "#0af",
 });

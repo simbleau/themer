@@ -23,8 +23,6 @@ pub fn theme_key(_attr: TokenStream, item: TokenStream) -> TokenStream {
         #[derive(::core::marker::Copy)]
         #[derive(::core::hash::Hash)]
         #[derive(::core::cmp::PartialEq)]
-        #[derive(::serde::Serialize)]
-        #[derive(::serde::Deserialize)]
         $item
     }
     .into()
