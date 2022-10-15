@@ -1,0 +1,12 @@
+[package]
+name = "example"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+[dependencies]
+themer = {path = "../../crates/themer"}
+stylist = { version = "0.10.1", features = [ "yew_integration"] }
+yew = "0.19.3"
+once_cell = "1.15.0"
