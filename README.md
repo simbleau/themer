@@ -7,6 +7,7 @@ Note: Themer is **NOT** a CSS solution. You may use any CSS styling solution you
 **Ongoing development. No/little documentation, rapidly changing, etc.**
 
 # Examples
+Examples can be served with [Trunk](https://trunkrs.dev/) (e.g. `trunk serve`)
 **TODO: This is in progress**
 - [Browser Preference](examples/browser_preferences/): Example of showing your browser's theme preference (Light/Dark)
 - [Minimal](examples/minimal/): Example of applying the browser's preferred theme
