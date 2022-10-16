@@ -51,7 +51,7 @@ impl ThemeKey for MyThemeChoice {
 ### Step 2: Provide your theme
 To pass your theme to your app, you must fist register a `ThemeProvider` with an initial theme choice. This follows the same pattern as [Contexts](https://yew.rs/docs/concepts/contexts) in Yew.
 
-In this example, we embed `<App />` is a function component containing your app.
+In this example, `<App />` is a function component containing your app.
 
 ```rs
 #[function_component(Root)]
