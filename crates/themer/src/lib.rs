@@ -19,3 +19,10 @@ pub use theme_context::ThemeContext;
 
 mod theme_provider;
 pub use theme_provider::ThemeProvider;
+
+pub mod prelude {
+    pub use crate::macros::*;
+    pub use crate::{
+        use_theme, BrowserPreference, Theme, ThemeKey, ThemeProvider,
+    };
+}
