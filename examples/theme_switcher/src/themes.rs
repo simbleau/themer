@@ -11,3 +11,8 @@ pub static DARK_THEME: Lazy<MyTheme> = Lazy::new(|| MyTheme {
     fg: "#fff",
     bg: "#000",
 });
+
+pub static BLUE_THEME: Lazy<MyTheme> = Lazy::new(|| MyTheme {
+    fg: "#fff",
+    bg: "#0af",
+});
