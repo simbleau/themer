@@ -1,47 +1,47 @@
 use std::ops::Deref;
-use themer_core::ThemeKey;
 use yew::prelude::*;
 
-use crate::Theme;
+use themer_core::ThemeKey;
 
 #[derive(Debug, Clone)]
-pub struct ThemeContext<T>
+pub struct ThemeContext<K>
 where
-    T: Theme,
+    K: ThemeKey,
 {
-    inner: UseStateHandle<T>,
+    inner: UseStateHandle<K>,
 }
 
-impl<T> ThemeContext<T>
+impl<K> ThemeContext<K>
 where
-    T: Theme,
+    K: ThemeKey,
 {
-    pub fn new(inner: UseStateHandle<T>) -> Self {
+    pub fn new(inner: UseStateHandle<K>) -> Self {
         Self { inner }
     }
 
-    pub fn set<K>(&self, key: K)
-    where
-        K: ThemeKey<T>,
-    {
-        self.inner.set(key.theme().clone());
+    pub fn set(&self, key: K) {
+        self.inner.set(key);
+    }
+
+    pub fn kind(&self) -> K {
+        *self.inner
     }
 }
 
-impl<T> Deref for ThemeContext<T>
+impl<K> Deref for ThemeContext<K>
 where
-    T: Theme,
+    K: ThemeKey,
 {
-    type Target = T;
+    type Target = <K as ThemeKey>::Theme;
 
-    fn deref(&self) -> &Self::Target {
-        &*self.inner
+    fn deref(&self) -> &'static Self::Target {
+        self.inner.theme()
     }
 }
 
-impl<T> PartialEq for ThemeContext<T>
+impl<K> PartialEq for ThemeContext<K>
 where
-    T: Theme,
+    K: ThemeKey,
 {
     fn eq(&self, rhs: &Self) -> bool {
         *self.inner == *rhs.inner

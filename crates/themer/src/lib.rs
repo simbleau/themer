@@ -4,11 +4,11 @@ pub mod macros {
 
 pub use themer_core::*;
 
-pub fn use_theme<T>() -> ThemeContext<T>
+pub fn use_theme<K>() -> ThemeContext<K>
 where
-    T: crate::Theme,
+    K: ThemeKey,
 {
-    yew::use_context::<ThemeContext<T>>().expect("Missing theme context!")
+    yew::use_context::<ThemeContext<K>>().expect("Missing theme context!")
 }
 
 mod browser_preference;

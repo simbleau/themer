@@ -1,35 +1,28 @@
-use std::marker::PhantomData;
-
-use crate::{Theme, ThemeKey};
-
-use super::ThemeContext;
 use yew::prelude::*;
 
+use crate::{ThemeContext, ThemeKey};
+
 #[derive(Debug, PartialEq, Properties)]
-pub struct ThemeProviderProps<T, K>
+pub struct ThemeProviderProps<K>
 where
-    T: Theme,
-    K: ThemeKey<T>,
+    K: ThemeKey,
 {
     pub theme: K,
     pub children: Children,
-    #[prop_or_default]
-    _pd: PhantomData<T>,
 }
 
 #[function_component(ThemeProvider)]
-pub fn theme_provider<T, K>(props: &ThemeProviderProps<T, K>) -> Html
+pub fn theme_provider<K>(props: &ThemeProviderProps<K>) -> Html
 where
-    T: Theme,
-    K: ThemeKey<T>,
+    K: ThemeKey,
 {
-    let theme = props.theme.theme().clone();
-    let theme_state = use_state(move || theme);
+    let themekey = props.theme.clone();
+    let theme_state = use_state(move || themekey);
     let theme_ctx = ThemeContext::new(theme_state);
 
     html! {
-        <ContextProvider<ThemeContext<T>> context={ theme_ctx }>
+        <ContextProvider<ThemeContext<K>> context={ theme_ctx }>
             {props.children.clone()}
-        </ContextProvider<ThemeContext<T>>>
+        </ContextProvider<ThemeContext<K>>>
     }
 }
