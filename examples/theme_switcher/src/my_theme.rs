@@ -17,7 +17,7 @@ pub enum MyThemeChoice {
 impl ThemeKey for MyThemeChoice {
     type Theme = MyTheme;
     fn theme(&self) -> &'static Self::Theme {
-        use crate::{BLUE_THEME, DARK_THEME, LIGHT_THEME};
+        use crate::themes::{BLUE_THEME, DARK_THEME, LIGHT_THEME};
         match self {
             MyThemeChoice::Light => &LIGHT_THEME,
             MyThemeChoice::Dark => &DARK_THEME,
