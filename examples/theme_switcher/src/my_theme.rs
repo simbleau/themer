@@ -7,7 +7,7 @@ pub struct MyTheme {
     pub bg: &'static str,
 }
 
-#[theme_key(MyTheme)]
+#[theme_key]
 pub enum MyThemeChoice {
     Light,
     Dark,
