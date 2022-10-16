@@ -7,6 +7,4 @@ edition = "2021"
 
 [dependencies]
 themer = {path = "../../crates/themer"}
-stylist = { version = "0.10.1", features = [ "yew_integration"] }
 yew = "0.19.3"
-once_cell = "1.15.0"
