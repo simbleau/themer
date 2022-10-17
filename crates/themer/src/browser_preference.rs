@@ -1,4 +1,6 @@
+use gloo_storage::errors::StorageError;
 use serde::{Deserialize, Serialize};
+use themer_core::ThemeKey;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum BrowserPreference {
@@ -21,5 +23,21 @@ impl BrowserPreference {
             // Browser was not queryable
             None => None,
         }
+    }
+
+    pub fn load<T>() -> Option<T>
+    where
+        T: ThemeKey + for<'de> serde::Deserialize<'de>,
+    {
+        use gloo_storage::Storage;
+        gloo_storage::LocalStorage::get("theme").ok()
+    }
+
+    pub fn save<T>(key: T) -> Result<(), StorageError>
+    where
+        T: ThemeKey + serde::Serialize,
+    {
+        use gloo_storage::Storage;
+        gloo_storage::LocalStorage::set("theme", key)
     }
 }
