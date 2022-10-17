@@ -1,4 +1,5 @@
 use gloo_storage::errors::StorageError;
+use gloo_storage::Storage;
 use serde::{Deserialize, Serialize};
 use themer_core::ThemeKey;
 
@@ -29,7 +30,6 @@ impl BrowserPreference {
     where
         T: ThemeKey + for<'de> serde::Deserialize<'de>,
     {
-        use gloo_storage::Storage;
         gloo_storage::LocalStorage::get("theme").ok()
     }
 
@@ -37,7 +37,6 @@ impl BrowserPreference {
     where
         T: ThemeKey + serde::Serialize,
     {
-        use gloo_storage::Storage;
         gloo_storage::LocalStorage::set("theme", key)
     }
 }
