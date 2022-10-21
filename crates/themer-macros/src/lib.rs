@@ -10,7 +10,6 @@
     deny(dead_code, unused_imports)
 )]
 
-extern crate proc_macro;
 use proc_macro::{quote, TokenStream};
 use quote::ToTokens;
 use syn::{parse_macro_input, DeriveInput};
