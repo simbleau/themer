@@ -1,9 +1,7 @@
-use stylist::yew::styled_component;
+use themer::BrowserPreference;
 use yew::prelude::*;
 
-use themer::BrowserPreference;
-
-#[styled_component(App)]
+#[function_component(App)]
 fn app() -> Html {
     let text = match BrowserPreference::get() {
         Some(BrowserPreference::Light) => "Your browser prefers a Light theme.",
