@@ -4,33 +4,6 @@ use themer::prelude::*;
 use web_sys::HtmlLabelElement;
 use yew::prelude::*;
 
-fn update_labels(
-    theme: MyThemeChoice,
-    saved_ref: &NodeRef,
-    current_ref: &NodeRef,
-) {
-    // Label texts
-    let saved = format!(
-        "Storage: {}",
-        match BrowserPreference::load::<MyThemeChoice>() {
-            Some(pref) => format!("{:?}", pref),
-            None => "No saved preference".into(),
-        }
-    );
-    let current = format!(
-        "Current theme: {}",
-        match theme {
-            MyThemeChoice::Light => "Light",
-            MyThemeChoice::Dark => "Dark",
-        }
-    );
-
-    let saved_label = saved_ref.cast::<HtmlLabelElement>().unwrap();
-    saved_label.set_inner_text(&saved);
-    let current_label = current_ref.cast::<HtmlLabelElement>().unwrap();
-    current_label.set_inner_text(&current);
-}
-
 #[function_component(Root)]
 pub fn root() -> Html {
     let stored_theme = match BrowserPreference::load::<MyThemeChoice>() {
@@ -112,4 +85,32 @@ fn app() -> Html {
 
 fn main() {
     yew::start_app::<Root>();
+}
+
+// Helper method to update the labels
+fn update_labels(
+    theme: MyThemeChoice,
+    saved_ref: &NodeRef,
+    current_ref: &NodeRef,
+) {
+    // Label texts
+    let saved = format!(
+        "Storage: {}",
+        match BrowserPreference::load::<MyThemeChoice>() {
+            Some(pref) => format!("{:?}", pref),
+            None => "No saved preference".into(),
+        }
+    );
+    let current = format!(
+        "Current theme: {}",
+        match theme {
+            MyThemeChoice::Light => "Light",
+            MyThemeChoice::Dark => "Dark",
+        }
+    );
+
+    let saved_label = saved_ref.cast::<HtmlLabelElement>().unwrap();
+    saved_label.set_inner_text(&saved);
+    let current_label = current_ref.cast::<HtmlLabelElement>().unwrap();
+    current_label.set_inner_text(&current);
 }
