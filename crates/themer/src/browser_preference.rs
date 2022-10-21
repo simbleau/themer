@@ -39,4 +39,8 @@ impl BrowserPreference {
     {
         gloo_storage::LocalStorage::set("theme", key)
     }
+
+    pub fn clear() {
+        gloo_storage::LocalStorage::delete("theme")
+    }
 }
