@@ -88,7 +88,7 @@ fn app() -> Html {
         })
     };
 
-    // Effect to dupdate labels on load
+    // Effect to update labels on load
     use_effect({
         let theme = theme.clone();
         let (saved_ref, current_ref) = (saved_ref.clone(), current_ref.clone());
