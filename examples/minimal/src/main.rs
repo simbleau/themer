@@ -50,17 +50,17 @@ pub fn app() -> Html {
     let style = format!("color:{}; background-color:{};", theme.fg, theme.bg);
 
     html! {
-        <div {style}>
+        <h2 {style}>
             {
                 match theme.kind() {
-                    MyThemeChoice::Light => "Light theme",
-                    MyThemeChoice::Dark => "Dark theme",
+                    MyThemeChoice::Light => "Light theme applied based on browser preference",
+                    MyThemeChoice::Dark => "Dark theme applied based on browser preference",
                 }
             }
-        </div>
+        </h2>
     }
 }
 
 pub fn main() {
-    yew::start_app::<Root>();
+    yew::Renderer::<Root>::new().render();
 }

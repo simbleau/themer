@@ -7,4 +7,4 @@ edition = "2021"
 
 [dependencies]
 themer = {path = "../../crates/themer"}
-yew = "0.19.3"
+yew = { version = "0.20.0", features = ["csr"] }

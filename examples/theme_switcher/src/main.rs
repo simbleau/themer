@@ -52,5 +52,5 @@ fn app() -> Html {
 }
 
 fn main() {
-    yew::start_app::<Root>();
+    yew::Renderer::<Root>::new().render();
 }
