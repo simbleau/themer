@@ -1,4 +1,4 @@
-use example::MyThemeChoice;
+use example_storage::my_theme_spec::MyThemeChoice;
 use stylist::yew::styled_component;
 use themer::prelude::*;
 use web_sys::HtmlLabelElement;
@@ -61,7 +61,7 @@ fn app() -> Html {
         })
     };
 
-    // Effect to update labels on load
+    // Effect to update labels
     use_effect({
         let theme = theme.clone();
         let (saved_ref, current_ref) = (saved_ref.clone(), current_ref.clone());

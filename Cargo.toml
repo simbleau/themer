@@ -5,9 +5,9 @@ members = [
     "crates/themer-macros",
 
     "examples/minimal",
+    "examples/read-browser-preference",
     "examples/storage",
     "examples/theme-switcher",
-    "examples/use-browser-theme",
 ]
 
 [profile.release]

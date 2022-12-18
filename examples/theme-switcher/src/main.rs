@@ -1,8 +1,7 @@
+use example_theme_switcher::my_theme_spec::MyThemeChoice;
 use stylist::yew::styled_component;
-use yew::prelude::*;
-
-use example::MyThemeChoice;
 use themer::{use_theme, ThemeProvider};
+use yew::prelude::*;
 
 #[function_component(Root)]
 pub fn root() -> Html {
