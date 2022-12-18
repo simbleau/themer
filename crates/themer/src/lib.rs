@@ -9,7 +9,7 @@ pub fn use_theme<K>() -> ThemeContext<K>
 where
     K: ThemeKey,
 {
-    yew::use_context::<ThemeContext<K>>().expect("no theme context")
+    yew::use_context::<ThemeContext<K>>().expect("no theme provider")
 }
 
 mod browser_preference;
