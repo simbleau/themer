@@ -9,10 +9,10 @@ Note: Themer is **NOT** a CSS solution. You may use any CSS styling solution you
 # Examples
 Examples can be served with [Trunk](https://trunkrs.dev/) (e.g. `trunk serve`)
 
-- [Browser Preference](examples/browser_preferences/): Example of showing your browser's theme preference (Light/Dark)
-- [Minimal](examples/minimal/): Example of applying the browser's preferred theme
-- [Theme Switcher](examples/theme_switcher/): Example of switching between themes
-- [Storage](examples/storage/): Example of storing and retrieving changeable theme preferences via local storage*
+- [Minimal](examples/minimal/): Example using the browser's preferred theme.
+- [Read browser preference](examples/read-browser-preference/): Display your browser's theme preference (Light/Dark) on a label (no styling applied).
+- [Theme Switcher](examples/theme-switcher/): A button which switches between 3 themes.
+- [Storage](examples/storage/): Store user-saved theme preferences with a button and load those preferences automatically on refresh.
 
 ## API Foreward
 ### Step 1: Setup a Theme and Key
@@ -20,8 +20,12 @@ The API asks you to create a Theme template struct with the `#[theme]` macro, an
 ```rs
 #[theme]
 pub struct MyTheme {
+    // Foreground color
     fg: &'static str,
+    // Background color
     bg: &'static str,
+    // Font size
+    fs: &'static str,
 }
 
 #[theme_key]
@@ -37,10 +41,12 @@ impl ThemeKey for MyThemeChoice {
             MyThemeChoice::Light => &MyTheme {
                 fg: "black",
                 bg: "white",
+                fs: "1.2em",
             },
             MyThemeChoice::Dark => &MyTheme {
                 fg: "white",
                 bg: "black",
+                fs: "1.2em",
             },
         }
     }
@@ -48,7 +54,7 @@ impl ThemeKey for MyThemeChoice {
 ```
 
 ### Step 2: Provide your theme
-To pass your theme to your app, you must fist register a `ThemeProvider` with an initial theme choice. This follows the same pattern as [Contexts](https://yew.rs/docs/concepts/contexts) in Yew.
+To pass your theme to your app, you must register a `ThemeProvider` with your theme choice. This works as a [Context](https://yew.rs/docs/concepts/contexts) in Yew.
 
 In this example, `<App />` is a function component containing your app.
 
@@ -63,10 +69,10 @@ pub fn root() -> Html {
     }
 }
 ```
-*Hint: You can query your browser's theme preference (Light/Dark) to help decide on an initial theme, via [`themer::BrowserPreference::get()`](#)*
+*You can match your browser's theme preference (Light/Dark) to help decide on an initial theme, via [`themer::BrowserPreference::get()`](#TODO)*
 
 ### Step 3: Use your theme
-Use your theme with `use_theme()` (which dereferences into your theme). This follows the same pattern as [Hooks](https://yew.rs/docs/concepts/function-components/pre-defined-hooks) in Yew.
+`use_theme()` will dereference into your theme. This works as a [Hook](https://yew.rs/docs/concepts/function-components/pre-defined-hooks) in Yew.
 
 ```rs
 #[function_component(App)]
