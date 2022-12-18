@@ -3,6 +3,11 @@ members = [
     "crates/themer",
     "crates/themer-core",
     "crates/themer-macros",
+
+    "examples/minimal",
+    "examples/storage",
+    "examples/theme-switcher",
+    "examples/use-browser-theme",
 ]
 
 [profile.release]
