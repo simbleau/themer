@@ -1,2 +1,2 @@
-mod traits;
-pub use traits::*;
+pub mod browser;
+pub mod traits;

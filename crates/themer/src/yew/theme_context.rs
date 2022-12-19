@@ -1,7 +1,6 @@
 use std::ops::Deref;
+use themer_core::traits::ThemeKey;
 use yew::prelude::*;
-
-use themer_core::ThemeKey;
 
 #[derive(Debug, Clone)]
 pub struct ThemeContext<K>

@@ -12,6 +12,6 @@ proc-macro = true
 
 [dependencies]
 themer-core = { path = "../themer-core" }
-proc-macro2 = "1.0.47"
-quote = "1.0.21"
+proc-macro2 = "1.0.48"
+quote = "1.0.22"
 syn = { version = "1.0.103", features = ["full", "extra-traits"] }

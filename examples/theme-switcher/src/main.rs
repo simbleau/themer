@@ -1,6 +1,6 @@
 use example_theme_switcher::my_theme_spec::MyThemeChoice;
 use stylist::yew::styled_component;
-use themer::{use_theme, ThemeProvider};
+use themer::prelude::*;
 use yew::prelude::*;
 
 #[function_component(Root)]

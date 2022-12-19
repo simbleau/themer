@@ -1,7 +1,7 @@
 use gloo_storage::errors::StorageError;
 use gloo_storage::Storage;
 use serde::{Deserialize, Serialize};
-use themer_core::ThemeKey;
+use crate::traits::ThemeKey;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum BrowserPreference {

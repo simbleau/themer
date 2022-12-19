@@ -1,6 +1,6 @@
+use super::ThemeContext;
+use themer_core::traits::ThemeKey;
 use yew::prelude::*;
-
-use crate::{ThemeContext, ThemeKey};
 
 #[derive(Debug, PartialEq, Properties)]
 pub struct ThemeProviderProps<K>

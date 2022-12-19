@@ -33,7 +33,7 @@ pub fn theme(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let DeriveInput { ident, .. } = parse_macro_input!(clone);
     let name = ident.to_token_stream();
     quote! {
-        impl themer::Theme for $name {}
+        impl themer::traits::Theme for $name {}
 
         #[derive(::core::clone::Clone)]
         #[derive(::core::fmt::Debug)]

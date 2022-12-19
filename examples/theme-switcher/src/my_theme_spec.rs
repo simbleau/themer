@@ -1,6 +1,5 @@
 use crate::my_themes::{BLUE_THEME, DARK_THEME, LIGHT_THEME};
-use themer::macros::*;
-use themer::ThemeKey;
+use themer::prelude::*;
 
 #[theme]
 pub struct MyTheme {

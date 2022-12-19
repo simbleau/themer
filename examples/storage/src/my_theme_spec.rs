@@ -1,6 +1,5 @@
 use serde::{Deserialize, Serialize};
-use themer::macros::*;
-use themer::ThemeKey;
+use themer::prelude::*;
 
 #[theme]
 pub struct MyTheme {

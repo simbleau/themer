@@ -2,3 +2,15 @@
 name = "themer-core"
 version = "0.1.0"
 edition = "2021"
+
+[dependencies]
+gloo-storage = "0.2.2"
+serde = "1.0.145"
+
+[dependencies.web-sys]
+version = "0.3.60"
+features = [
+    "Storage",
+    "Window",
+    "MediaQueryList",
+]

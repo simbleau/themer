@@ -1,4 +1,4 @@
-use themer::BrowserPreference;
+use themer::prelude::*;
 use yew::prelude::*;
 
 #[function_component(App)]
