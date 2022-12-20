@@ -1,9 +1,10 @@
+edition = "2021"
+imports_granularity = "Module"
+
+# Rules
 max_width = 80
 comment_width = 80
 wrap_comments = true
-
 format_code_in_doc_comments = true
 normalize_doc_attributes = true
 normalize_comments = true
-
-imports_granularity = "Module"
