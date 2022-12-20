@@ -1,7 +1,19 @@
 [package]
 name = "themer"
+description = "Non-complicated theme management for Yew"
 version = "0.1.0"
+authors = ["Spencer C. Imbleau <spencer@imbleau.com>"]
 edition = "2021"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/simbleau/themer"
+keywords = [
+    "CSS",
+    "web",
+    "css-in-rust",
+    "yew"
+]
+categories = ["wasm", "web-programming"]
+readme = "../../README.md"
 
 [dependencies]
 themer-core = { path = "../themer-core" }
