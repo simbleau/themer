@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 gloo-storage = "0.2.2"
-serde = "1.0.145"
+serde = { version = "1.0.151", features = ["derive"] }
 
 [dependencies.web-sys]
 version = "0.3.60"
