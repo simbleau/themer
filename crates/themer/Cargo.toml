@@ -1,17 +1,12 @@
 [package]
 name = "themer"
 description = "Non-complicated theme management for Yew"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Spencer C. Imbleau <spencer@imbleau.com>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/simbleau/themer"
-keywords = [
-    "CSS",
-    "web",
-    "css-in-rust",
-    "yew"
-]
+keywords = ["CSS", "web", "css-in-rust", "yew"]
 categories = ["wasm", "web-programming"]
 readme = "../../README.md"
 
@@ -21,7 +16,7 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 themer-core = { path = "../themer-core" }
 themer-macros = { path = "../themer-macros", optional = true }
-yew = {version = "0.20.0", optional = true }
+yew = { version = "0.20.0", optional = true }
 
 [features]
 default = ["macros", "yew_integration"]

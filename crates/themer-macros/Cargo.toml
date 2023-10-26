@@ -4,14 +4,9 @@ description = "Non-complicated theme management for Yew"
 version = "0.1.0"
 authors = ["Spencer C. Imbleau <spencer@imbleau.com>"]
 edition = "2021"
-license = "MIT OR Apache-2.0"
+license = "MIT/Apache-2.0"
 homepage = "https://github.com/simbleau/themer"
-keywords = [
-    "CSS",
-    "web",
-    "css-in-rust",
-    "yew"
-]
+keywords = ["CSS", "web", "css-in-rust", "yew"]
 categories = ["wasm", "web-programming"]
 readme = "README.md"
 
@@ -20,6 +15,5 @@ proc-macro = true
 
 [dependencies]
 themer-core = { path = "../themer-core" }
-proc-macro2 = "1.0.48"
-quote = "1.0.22"
-syn = { version = "1.0.103", features = ["full", "extra-traits"] }
+quote = "1.0"
+syn = { version = "2.0", features = ["full", "extra-traits"] }

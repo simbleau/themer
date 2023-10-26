@@ -9,9 +9,3 @@ members = [
     "examples/storage",
     "examples/theme-switcher",
 ]
-
-[profile.release]
-opt-level = 'z'
-lto = true
-codegen-units = 1
-panic = "abort"
