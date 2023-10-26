@@ -1,11 +1,31 @@
 [workspace]
-members = [
-    "crates/themer",
-    "crates/themer-core",
-    "crates/themer-macros",
+members = ["crates/themer-core", "crates/themer-macros"]
 
-    "examples/minimal",
-    "examples/read-browser-preference",
-    "examples/storage",
-    "examples/theme-switcher",
-]
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/simbleau/themer"
+
+[workspace.dependencies]
+yew = "0.20"
+
+[package]
+name = "themer"
+description = "Non-complicated theme management for Yew"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+repository.workspace = true
+keywords = ["CSS", "web", "css-in-rust", "yew"]
+categories = ["wasm", "web-programming"]
+
+[dependencies]
+yew = { workspace = true, optional = true }
+themer-macros = { path = "crates/themer-macros", optional = true }
+themer-core = { path = "crates/themer-core" }
+
+[features]
+default = ["macros", "yew_integration"]
+macros = ["dep:themer-macros"]
+yew_integration = ["yew"]

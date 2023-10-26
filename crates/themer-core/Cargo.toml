@@ -1,28 +1,14 @@
 [package]
 name = "themer-core"
-description = "Non-complicated theme management for Yew"
-version = "0.1.0"
-authors = ["Spencer C. Imbleau <spencer@imbleau.com>"]
-edition = "2021"
-license = "MIT OR Apache-2.0"
-homepage = "https://github.com/simbleau/themer"
-keywords = [
-    "CSS",
-    "web",
-    "css-in-rust",
-    "yew"
-]
-categories = ["wasm", "web-programming"]
-readme = "README.md"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+repository.workspace = true
 
 [dependencies]
-gloo-storage = "0.2.2"
-serde = { version = "1.0.151", features = ["derive"] }
+gloo-storage = "0.3"
+serde = { version = "1.0", features = ["derive"] }
 
 [dependencies.web-sys]
 version = "0.3.60"
-features = [
-    "Storage",
-    "Window",
-    "MediaQueryList",
-]
+features = ["Storage", "Window", "MediaQueryList"]

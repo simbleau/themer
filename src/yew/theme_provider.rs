@@ -16,7 +16,7 @@ pub fn theme_provider<K>(props: &ThemeProviderProps<K>) -> Html
 where
     K: ThemeKey,
 {
-    let themekey = props.theme.clone();
+    let themekey = props.theme;
     let theme_state = use_state(move || themekey);
     let theme_ctx = ThemeContext::new(theme_state);
 

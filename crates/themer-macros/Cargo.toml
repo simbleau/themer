@@ -1,14 +1,9 @@
 [package]
 name = "themer-macros"
-description = "Non-complicated theme management for Yew"
-version = "0.1.0"
-authors = ["Spencer C. Imbleau <spencer@imbleau.com>"]
-edition = "2021"
-license = "MIT/Apache-2.0"
-homepage = "https://github.com/simbleau/themer"
-keywords = ["CSS", "web", "css-in-rust", "yew"]
-categories = ["wasm", "web-programming"]
-readme = "README.md"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+repository.workspace = true
 
 [lib]
 proc-macro = true
