@@ -1,12 +1,14 @@
 [package]
 name = "example-storage"
-version = "0.1.0"
-edition = "2021"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+repository.workspace = true
 
 [dependencies]
-themer = {path = "../../crates/themer"}
-stylist = { version = "0.11.0", features = [ "yew_integration"] }
-yew = { version = "0.20.0", features = ["csr"] }
-serde = "1.0.145"
-once_cell = "1.15.0"
-web-sys = {version="0.3.60", features=["HtmlLabelElement", "HtmlElement"]}
+themer = { path = "../.." }
+stylist = { version = "0.13", features = ["yew_integration"] }
+yew = { version = "0.21", features = ["csr"] }
+serde = "1.0"
+once_cell = "1.15"
+web-sys = { version = "0.3", features = ["HtmlLabelElement", "HtmlElement"] }

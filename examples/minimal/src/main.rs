@@ -1,4 +1,9 @@
-use themer::prelude::*;
+use themer::{
+    browser::BrowserPreference,
+    macros::{theme, theme_key},
+    traits::ThemeKey,
+    yew::{use_theme, ThemeProvider},
+};
 use yew::prelude::*;
 
 #[theme]

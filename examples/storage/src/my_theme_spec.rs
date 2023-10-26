@@ -1,5 +1,8 @@
 use serde::{Deserialize, Serialize};
-use themer::prelude::*;
+use themer::{
+    macros::{theme, theme_key},
+    traits::ThemeKey,
+};
 
 #[theme]
 pub struct MyTheme {
@@ -8,16 +11,11 @@ pub struct MyTheme {
 }
 
 #[theme_key]
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Default)]
 pub enum MyThemeChoice {
+    #[default]
     Light,
     Dark,
-}
-
-impl Default for MyThemeChoice {
-    fn default() -> Self {
-        MyThemeChoice::Light
-    }
 }
 
 impl ThemeKey for MyThemeChoice {

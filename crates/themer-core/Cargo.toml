@@ -8,7 +8,8 @@ repository.workspace = true
 [dependencies]
 gloo-storage = "0.3"
 serde = { version = "1.0", features = ["derive"] }
-
-[dependencies.web-sys]
-version = "0.3.60"
-features = ["Storage", "Window", "MediaQueryList"]
+web-sys = { version = "0.3", features = [
+    "Storage",
+    "Window",
+    "MediaQueryList",
+] }

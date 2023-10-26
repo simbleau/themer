@@ -1,10 +1,12 @@
 [package]
 name = "example-theme-switcher"
-version = "0.1.0"
-edition = "2021"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+repository.workspace = true
 
 [dependencies]
-themer = {path = "../../crates/themer"}
-stylist = { version = "0.11.0", features = [ "yew_integration"] }
-yew = { version = "0.20.0", features = ["csr"] }
+themer = { path = "../.." }
+stylist = { version = "0.13", features = ["yew_integration"] }
+yew = { version = "0.21", features = ["csr"] }
 once_cell = "1.15.0"

@@ -1,6 +1,9 @@
 use example_storage::my_theme_spec::MyThemeChoice;
 use stylist::yew::styled_component;
-use themer::prelude::*;
+use themer::{
+    browser::BrowserPreference,
+    yew::{use_theme, ThemeProvider},
+};
 use web_sys::HtmlLabelElement;
 use yew::prelude::*;
 

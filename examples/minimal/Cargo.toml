@@ -1,8 +1,10 @@
 [package]
 name = "example-minimal"
-version = "0.1.0"
-edition = "2021"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+repository.workspace = true
 
 [dependencies]
-themer = {path = "../../crates/themer"}
-yew = { version = "0.20.0", features = ["csr"] }
+themer = { path = "../.." }
+yew = { version = "0.21", features = ["csr"] }
